@@ -1,4 +1,3 @@
-'use client';
 import * as React from 'react';
 
 type OutletId = string;
@@ -13,21 +12,17 @@ type PortalContextValue = {
 
 const PortalContext = React.createContext<PortalContextValue | null>(null);
 
-/** Провайдер хранит зарегистрированные узлы для монтирование компонентов через Portal */
 export const PortalProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const registry = React.useRef<Registry>(new Map());
   const [version, setVersion] = React.useState(0);
 
-  /** Регистрируем узел по его id и token*/
   const register = React.useCallback((id: OutletId, el: HTMLElement | null, token: symbol) => {
-    // записываем узел и обновляем версию мапы
     if (el) {
       registry.current.set(id, { el, token });
       setVersion((v) => v + 1);
       return;
     }
 
-    // удаляем только если снимает текущий узел проверка по токену и обновляем версию мапы
     const entry = registry.current.get(id);
     if (entry && entry.token === token) {
       registry.current.delete(id);

@@ -63,3 +63,4 @@ Add a note to the documentation explaining this behavior:
 - Force remount with `key={someId}` when the outlet changes.
 - Wrap Mantine `Portal` and trigger a state update on `target` change.
 - Use a custom portal built on top of `ReactDOM.createPortal` that always renders into the current target.
+****
