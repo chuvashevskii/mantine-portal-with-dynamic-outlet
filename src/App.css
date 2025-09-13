@@ -1,0 +1,25 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.control {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.component {
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fafafa;
+}
